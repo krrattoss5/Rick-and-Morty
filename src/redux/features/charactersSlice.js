@@ -18,11 +18,14 @@ export const charactersSlice = createSlice({
       state.search = action.payload
     },
     clearSearch: (state,action) => {
-      state.search = action.payload
+      state.search = []
+    },
+    infiniteScroll: (state,action) => {
+      state.characters = [...state.characters,...action.payload]
     }
   }
 })
 
-export const {getCharacters,onClose,onSearch,clearSearch} = charactersSlice.actions
+export const {getCharacters,onClose,onSearch,clearSearch,infiniteScroll} = charactersSlice.actions
 
 export default charactersSlice.reducer
