@@ -1,4 +1,4 @@
-import { getCharacters,onSearch } from "../features/charactersSlice";
+import { getCharacters,onSearch,infiniteScroll } from "../features/charactersSlice";
 
 export const getAllCharacters = () => (dispatch) => {
   try {
@@ -28,5 +28,21 @@ export const searchCharacter = (name) => (dispatch) => {
     }else{
       console.log('Error not found!!');
     }
+  }
+}
+
+export const loadCharacters = (page) => (dispatch) => {
+  try{
+      fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+       .then(res => {
+        if(!res.ok){
+          throw new Error('Load Error!')
+        }else{
+          return res.json()
+        }
+       })
+       .then(({results}) => dispatch(infiniteScroll(results)))
+  }catch{
+
   }
 }
