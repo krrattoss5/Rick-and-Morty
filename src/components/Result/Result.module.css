@@ -1,0 +1,32 @@
+.container{
+  background-color: rgba(0, 0, 0, 0.568);
+  height: 70px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  border-radius: 50px 10px 10px 50px;
+  margin:10px;
+  position: relative;
+}
+
+.image{
+  height: 70px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.span{
+  margin-left: 1rem;
+}
+
+.span span{
+  margin: 0;
+}
+
+.container button{
+  background-color: rgb(24, 24, 147);
+  padding: 10px 15px;
+  border-radius:15px;
+  position: absolute;
+  right: 10px;
+}
