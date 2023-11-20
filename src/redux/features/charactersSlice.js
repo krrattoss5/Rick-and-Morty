@@ -8,10 +8,14 @@ export const charactersSlice = createSlice({
   reducers:{
     getCharacters: (state,action) => {
       state.characters = action.payload
+    },
+    onClose: (state,action) => {
+      const close = state.characters.filter((ch)=>ch.id !== action.payload)
+      state.characters = close
     }
   }
 })
 
-export const {getCharacters} = charactersSlice.actions
+export const {getCharacters,onClose} = charactersSlice.actions
 
 export default charactersSlice.reducer
